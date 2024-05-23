@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { addReserve } from "../../store/modules/reserve/actions";
 import api from "../../services/api";
 import "./style.css";
 
@@ -10,10 +11,7 @@ export default function Home() {
   const [trips, setTrips] = useState([]);
 
   function handleAdd(trip) {
-    dispatch({
-      type: "ADD_RESERVE",
-      trip,
-    });
+    dispatch(addReserve(trip));
   }
 
   useEffect(() => {
